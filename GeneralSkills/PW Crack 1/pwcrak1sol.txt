@@ -1,0 +1,26 @@
+Author: LT 'syreal' Jones
+Description
+Can you crack the password to get the flag? Download the password checker here and you'll need the encrypted flag in the same directory too.
+
+first Download password checker python file using the command 
+
+$$ wget https://artifacts.picoctf.net/c/10/level1.py
+
+then download the encrypted flag using the command 
+
+wget https://artifacts.picoctf.net/c/10/level1.flag.txt.enc
+
+
+once you have download the file , open level1.py using cat and analysies the code you will find a password checker function for verification 
+the password will  be 691d .
+
+now execute the py file and then enter the password 
+
+
+webshell:~$ python level1.py 
+Please enter correct password for flag: 691d
+
+the output will be the picoctf
+
+Welcome back... your flag, user:
+picoCTF{545h_r1ng1ng_56891419}

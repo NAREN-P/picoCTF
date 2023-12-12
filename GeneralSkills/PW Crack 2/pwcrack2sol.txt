@@ -1,0 +1,63 @@
+Author: LT 'syreal' Jones
+Description
+Can you crack the password to get the flag? Download the password checker here and you'll need the encrypted flag in the same directory too.
+ 
+download the file using wget command 
+
+$ wget https://artifacts.picoctf.net/c/15/level2.py
+
+$wget https://artifacts.picoctf.net/c/15/level2.flag.txt.enc
+
+now open level2.py file using cat 
+
+
+
+### THIS FUNCTION WILL NOT HELP YOU FIND THE FLAG --LT ########################
+def str_xor(secret, key):
+    #extend key to secret length
+    new_key = key
+    i = 0
+    while len(new_key) < len(secret):
+        new_key = new_key + key[i]
+        i = (i + 1) % len(key)        
+    return "".join([chr(ord(secret_c) ^ ord(new_key_c)) for (secret_c,new_key_c) in zip(secret,new_key)])
+###############################################################################
+
+flag_enc = open('level2.flag.txt.enc', 'rb').read()
+
+
+
+def level_2_pw_check():
+    user_pw = input("Please enter correct password for flag: ")
+    if( user_pw == chr(0x33) + chr(0x39) + chr(0x63) + chr(0x65) ):
+        print("Welcome back... your flag, user:")
+        decryption = str_xor(flag_enc.decode(), user_pw)
+        print(decryption)
+        return
+    print("That password is incorrect")
+
+
+
+level_2_pw_check()
+
+
+##-------------------------------------------------------------------------------------##
+
+above file we can see some ascii format value we have find the ascii value and the give it as password for level2.py file 
+ascii value for chr(0x33) + chr(0x39) + chr(0x63) + chr(0x65) is 
+
+chr(0x33) represents the character with ASCII value 0x33, which is the character '3'.
+chr(0x39) represents the character with ASCII value 0x39, which is the character '9'.
+chr(0x63) represents the character with ASCII value 0x63, which is the character 'c'.
+chr(0x65) represents the character with ASCII value 0x65, which is the character 'e'.
+So, the entire expression is equivalent to the string '39ce'.
+
+This line is checking whether the variable user_pw is equal to the string '39ce'. If user_pw has the same value as '39ce', the comparison will evaluate to True; otherwise, it will be False.
+ 
+
+ now execute the file
+
+$ python level2.py
+Please enter correct password for flag: 39ce
+Welcome back... your flag, user:
+picoCTF{tr45h_51ng1ng_502ec42e} 

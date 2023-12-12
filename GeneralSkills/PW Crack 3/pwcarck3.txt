@@ -1,0 +1,28 @@
+Author: LT 'syreal' Jones
+Description
+Can you crack the password to get the flag? Download the password checker here and you'll need the encrypted flag and the hash in the same directory too. There are 7 potential passwords with 1 being correct. You can find these by examining the password checker script.
+
+you have download the three file in webshell using command
+
+py file:
+$ wget https://artifacts.picoctf.net/c/16/level3.py
+
+enc flag file
+$ wget https://artifacts.picoctf.net/c/16/level3.flag.txt.enc 
+
+hash file :
+$ wget https://artifacts.picoctf.net/c/16/level3.hash.bin
+
+
+open level3.py using cat command 
+$cat level3.py
+
+now u will get list of passwords you can us it to find the flag
+
+passwords:
+pos_pw_list = ["6997", "3ac8", "f0ac", "4b17", "ec27", "4e66", "865e"]
+
+
+865e is the correct password, then you will get flag as simple it is
+
+picoCTF{m45h_fl1ng1ng_2b072a90}
