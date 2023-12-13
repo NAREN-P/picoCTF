@@ -6,21 +6,19 @@ Download runme.py Python script
 
 - to download file use the following command
 
-'''html
+'''javascript
 $ wget https://artifacts.picoctf.net/c/34/runme.py
-
 '''
 
 - First thing is you always see py file 
 
 - use the following command
 
-'''html 
+'''javascript
 $ cat runme.py
-
 '''
 ** output **
-'''html 
+'''javascript 
 flag ='picoCTF{run_s4n1ty_run}'
 print(flag)
 
@@ -30,15 +28,13 @@ print(flag)
 
 - run the runme.py file using the following command
 
-'''html
+'''javascript
 $ python runme.py
-
 ''' 
 ## output
 
-'''html 
+'''javascript 
 flag ='picoCTF{run_s4n1ty_run}'
-
 '''
 
 flag is `picoCTF{run_s4n1ty_run}`
